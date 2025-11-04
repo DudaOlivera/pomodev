@@ -30,13 +30,13 @@ Por ser um projeto puramente front-end (HTML, CSS, JS), não é necessário um s
 1.  **Clone o repositório:**
 
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/DudaOlivera/pomodev.git
     ```
 
 2.  **Navegue até a pasta:**
 
     ```bash
-    cd seu-repositorio
+    cd pomodev
     ```
 
 3.  **Adicione o som de alerta:**

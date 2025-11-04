@@ -1,0 +1,215 @@
+:root {
+    --foco-grad-1: #2e1a47;
+    --foco-grad-2: #1e3a8a;
+    --foco-grad-3: #4a0e4e;
+    --foco-primary: #8b5cf6;  
+    --foco-primary-hover: #7c3aed; 
+    --foco-text: #c4b5fd;     
+
+    --descanso-grad-1: #064e3b;
+    --descanso-grad-2: #0d9488;
+    --descanso-grad-3: #14b8a6;
+    --descanso-primary: #14b8a6;  
+    --descanso-primary-hover: #0d9488; 
+    --descanso-text: #99f6e4;    
+
+    --dark-bg: #1f2937;
+    --dark-card: #111827;
+    --dark-light: #4b5563;
+    --text-light: #d1d5db;
+    --text-white: #ffffff;
+}
+
+@keyframes pan-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    background-size: 400% 400%;
+    animation: pan-gradient 15s ease infinite;
+    transition: background-image 1s ease;
+}
+
+body.foco {
+    background-image: linear-gradient(-45deg, var(--foco-grad-1), var(--foco-grad-2), var(--foco-grad-3));
+    --primary-color: var(--foco-primary);
+    --primary-hover: var(--foco-primary-hover);
+    --primary-text: var(--foco-text);
+}
+
+body.descanso {
+    background-image: linear-gradient(-45deg, var(--descanso-grad-1), var(--descanso-grad-2), var(--descanso-grad-3));
+    --primary-color: var(--descanso-primary);
+    --primary-hover: var(--descanso-primary-hover);
+    --primary-text: var(--descanso-text);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: var(--text-white);
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+.timer-container {
+    width: 100%;
+    max-width: 440px;
+    margin: 20px;
+    padding: 2.5rem;
+    background-color: var(--dark-card);
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mode-switcher {
+    display: flex;
+    background-color: var(--dark-bg);
+    padding: 6px;
+    border-radius: 99px;
+    margin-bottom: 2rem;
+}
+
+.mode-switcher button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.mode-switcher button:hover:not(.active) {
+    background-color: var(--dark-light);
+}
+
+.mode-switcher button.active {
+    background-color: var(--primary-color);
+}
+
+.timer-circle {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin-bottom: 2rem;
+}
+
+.timer-circle svg {
+    width: 100%;
+    height: 100%;
+}
+
+.timer-bg-ring {
+    fill: none;
+    stroke-width: 12;
+    stroke: var(--dark-bg);
+}
+
+.timer-progress-ring {
+    fill: none;
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke: var(--primary-color);
+    stroke-dasharray: 880;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s linear, stroke 0.5s ease;
+}
+
+.timer-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 1.5rem; 
+    width: 100%; 
+}
+
+#btn-play-pause {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+#btn-play-pause:hover {
+    background-color: var(--primary-hover);
+}
+#btn-play-pause svg {
+    width: 40px;
+    height: 40px;
+    fill: var(--text-white);
+}
+
+#btn-reset {
+    padding: 1rem;
+    border-radius: 50%;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    
+    width: calc(28px + 2rem);
+    height: calc(28px + 2rem);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; 
+}
+#btn-reset:hover {
+    color: var(--text-white);
+    background-color: var(--dark-bg);
+}
+#btn-reset svg {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0; 
+}
+
+.spacer {
+    width: calc(28px + 2rem);
+    height: calc(28px + 2rem);
+}
+.cycle-counter {
+    margin-top: 2rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--primary-text);
+    transition: color 0.5s ease;
+    text-align: center; 
+    width: 100%; 
+}

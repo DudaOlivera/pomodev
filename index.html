@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25:00 - Foco</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link id="favicon" rel="icon" href="" type="image/svg+xml">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
+</head>
+
+<body class="foco">
+
+    <div class="timer-container">
+        <div class="mode-switcher">
+            <button id="btn-foco" class="active">Foco</button>
+            <button id="btn-descanso">Descanso</button>
+        </div>
+
+        <div class="timer-circle">
+            <svg viewBox="0 0 300 300">
+                <circle class="timer-bg-ring" cx="150" cy="150" r="140" />
+                <circle id="timer-progress-ring" class="timer-progress-ring"
+                    cx="150" cy="150" r="140"
+                    transform="rotate(-90 150 150)" />
+            </svg>
+            <div id="timer-display" class="timer-display">25:00</div>
+        </div>
+
+       <div class="controls">
+            <button id="btn-reset" title="Reiniciar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4.755 10.059a7.5 7.5 0 0112.548-3.364l1.905-1.906c.43-.43 1.134-.11 1.134.5v5.25a.75.75 0 01-.75.75h-5.25a.75.75 0 01-.5-1.134l1.907-1.905A6 6 0 006.27 12.006a.75.75 0 01-1.415-.227zM18.245 13.941a7.5 7.5 0 01-12.548 3.364l-1.905 1.906c-.43.43-1.134.11-1.134-.5v-5.25a.75.75 0 01.75-.75h5.25a.75.75 0 01.5 1.134l-1.907 1.905A6 6 0 0017.73 11.994a.75.75 0 011.415.227z" clip-rule="evenodd" />
+                </svg>
+            </button>
+
+            <button id="btn-play-pause" title="Iniciar">
+                <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+                <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="display: none;">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            
+            <div class="spacer"></div>
+        </div>
+
+        <div id="cycle-counter" class="cycle-counter">
+            Ciclos de Foco: 0
+        </div>
+    </div>
+    <audio id="timer-alert-sound" src="alert.mp3" preload="auto"></audio>
+
+</body>
+</html>
